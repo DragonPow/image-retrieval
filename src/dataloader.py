@@ -29,10 +29,7 @@ class MyDataLoader(Dataset):
 
     def __init__(self, image_root):
         self.image_root = pathlib.Path(image_root)
-        self.image_list = list()
-        for image_path in self.image_root.iterdir():
-            if image_path.exists() and image_path.suffix.lower() in ACCEPTED_IMAGE_EXTS:
-                self.image_list.append(image_path)
+        self.image_list = list(self.image_root.rglob("*.jpg"))
         self.image_list = sorted(self.image_list, key = lambda x: x.name)
         self.transform = get_transformation()
 

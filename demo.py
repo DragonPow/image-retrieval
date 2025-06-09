@@ -19,10 +19,7 @@ feature_root = './dataset/feature'
 
 def get_image_list(image_root):
     image_root = pathlib.Path(image_root)
-    image_list = list()
-    for image_path in image_root.iterdir():
-        if image_path.exists():
-            image_list.append(image_path)
+    image_list = list(image_root.rglob("*.jpg"))
     image_list = sorted(image_list, key = lambda x: x.name)
     return image_list
 
@@ -84,33 +81,34 @@ def main():
 
             end = time.time()
             st.markdown('**Finish in ' + str(end - start) + ' seconds**')
+            print('Image retrieval: ' + str(retriev))
 
             col3, col4 = st.columns(2)
 
             with col3:
                 image = Image.open(image_list[retriev[0]])
-                st.image(image, use_column_width = 'always')
+                st.image(image, use_container_width = True)
 
             with col4:
                 image = Image.open(image_list[retriev[1]])
-                st.image(image, use_column_width = 'always')
+                st.image(image, use_container_width = True)
 
             col5, col6, col7 = st.columns(3)
 
             with col5:
                 for u in range(2, 11, 3):
                     image = Image.open(image_list[retriev[u]])
-                    st.image(image, use_column_width = 'always')
+                    st.image(image, use_container_width = True)
 
             with col6:
                 for u in range(3, 11, 3):
                     image = Image.open(image_list[retriev[u]])
-                    st.image(image, use_column_width = 'always')
+                    st.image(image, use_container_width = True)
 
             with col7:
                 for u in range(4, 11, 3):
                     image = Image.open(image_list[retriev[u]])
-                    st.image(image, use_column_width = 'always')
+                    st.image(image, use_container_width = True)
 
 if __name__ == '__main__':
     main()

@@ -19,7 +19,7 @@ This is my project built for the Content-based Image Retrieval problem. In this 
 
 I use the [faiss](https://github.com/facebookresearch/faiss.git) library created by Facebook. The weights of the VGG16 and Resnet50 networks are taken from the pre-trained model of [torchvision.models](https://pytorch.org/vision/stable/models.html).
 
-## Prepare the environment
+## Prepare the environment (Linux)
 
 1. python==3.8.16
 2. Install PyTorch-cuda==11.7 following [official instruction](https://pytorch.org/):
@@ -34,11 +34,17 @@ I use the [faiss](https://github.com/facebookresearch/faiss.git) library created
 
         pip install -r requirements.txt
 
+## Prepare the environment (Windows)
+
+1. Install conda packages:
+
+        conda env create -f environment.yml
+
 ## Prepare the dataset
 
-1. Put the downloaded [The Paris Dataset](https://www.robots.ox.ac.uk/~vgg/data/parisbuildings/) (or link [Kaggle](https://www.kaggle.com/datasets/skylord/oxbuildings?select=paris_2.tgz)) in **./data/paris**
+1. Put the downloaded [The Paris Dataset](https://www.robots.ox.ac.uk/~vgg/data/parisbuildings/) (or link [Kaggle](https://www.kaggle.com/datasets/skylord/oxbuildings?select=paris_2.tgz)) in **./dataset/paris**
 
-2. Put the downloaded [groundtruth](https://www.robots.ox.ac.uk/~vgg/data/parisbuildings/) in **./data/groundtruth**
+2. Put the downloaded [groundtruth](https://www.robots.ox.ac.uk/~vgg/data/parisbuildings/) in **./dataset/groundtruth**
 
 Please organize your dataset following this structure: 
 
