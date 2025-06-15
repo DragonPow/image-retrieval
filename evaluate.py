@@ -19,7 +19,7 @@ def main():
 
     MAP = compute_mAP(args.feature_extractor, args.crop)
 
-    print(MAP)
+    print('MAP:', MAP)
 
     end = time.time()
     print('Finish in ' + str(end - start) + ' seconds')
